@@ -1,15 +1,9 @@
-<?php
-    include "blocks/bd.php";
-    $result = mysql_query("SELECT title,meta_d,meta_k,text FROM settings WHERE page='index'",$bd);
-
-    $myrow = mysql_fetch_array($result);
-?>
 <!DOCTYPE html>
 <head lang="ru">
     <meta charset="UTF-8">
-    <title><?php echo $myrow['title'];?></title>
-        <meta name="description" content="<?php echo $myrow['meta_d'];?>">
-        <meta name="keywords" content="<?php echo $myrow['meta_k'];?>">
+    <title>О нас</title>
+        <meta name="description" content="">
+        <meta name="keywords" content="Регистрал">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" type="text/css" href="style.css">
 </head>
@@ -18,6 +12,7 @@
         <?php
             include("blocks/header.php");
         ?>
+
         <tr>
             <td>
               <table align="center" cellpadding="0" cellspacing="0">
@@ -25,8 +20,8 @@
         <?php
             include("blocks/lefttd.php");
         ?>
-            <td width="508px" class="v_top"> 
-            <?php echo $myrow['text'];?>
+            <td width="508px" class="v_top">
+                <p>О нас</p>
             </td>
         </tr>
         </table>  
@@ -35,6 +30,8 @@
         <?php
             include("blocks/footer.php");
         ?>
-     </table>
+        
+    </table>
+    
 </body>
 </html>
