@@ -41,6 +41,46 @@ font-weight:bold;
 margin:5px;
 padding:5px;
 }
+.col-md-12 img {
+	margin: 0 auto;
+	display: block;
+}
+
+.lesson
+{
+	border: 1px solid #ccc;
+	width: 95%;
+}
+.lesson_title
+{
+	background: #f6f6f6;
+}
+.lesson_name
+{
+	font-weight: bold;
+	margin: 7px 15;
+}
+.lesson_adds{
+	font-size: 11px;
+	margin:7px 15;
+	color: #424242;
+}
+
+.view_title
+{
+	font-size: 22px;
+	font-weight: bold;
+	color:red;
+	margin-left: 15px;
+	text-align: center;
+}
+
+.view_date
+{
+	color: #424242;
+	font-size: 11px;
+	margin: 7px 15px;
+}
 
 #coolmenu{
 border: 1px solid gray; /*Ñòèëü ðàìêè */

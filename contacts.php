@@ -1,9 +1,16 @@
+<?php
+    include "blocks/bd.php";
+    $result = mysql_query("SELECT title,meta_d,meta_k,text FROM settings WHERE page='contacts'",$bd);
+
+    $myrow = mysql_fetch_array($result);
+?>
 <!DOCTYPE html>
 <head lang="ru">
     <meta charset="UTF-8">
-    <title>О нас</title>
-        <meta name="description" content="">
-        <meta name="keywords" content="Регистрал">
+    <meta charset="UTF-8">
+    <title><?php echo $myrow['title'];?></title>
+        <meta name="description" content="<?php echo $myrow['meta_d'];?>">
+        <meta name="keywords" content="<?php echo $myrow['meta_k'];?>">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" type="text/css" href="style.css">
 </head>
@@ -21,7 +28,7 @@
             include("blocks/lefttd.php");
         ?>
             <td width="508px" class="v_top">
-                <p>О нас</p>
+                <?php echo $myrow['text'];?>
             </td>
         </tr>
         </table>  

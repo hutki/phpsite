@@ -1,6 +1,6 @@
 <?php
     include "blocks/bd.php";
-    $result = mysql_query("SELECT title,meta_d,meta_k,text FROM settings WHERE page='articles'",$bd);
+    $result = mysql_query("SELECT title,meta_d,meta_k,text FROM settings WHERE page='lessons'",$bd);
 
     $myrow = mysql_fetch_array($result);
 ?>
@@ -27,7 +27,7 @@
             include("blocks/lefttd.php");
         ?>
             <td width="508px" class="v_top">
-                 <?php echo $myrow['text'];?>
+               
             </td>
         </tr>
         </table>  

@@ -1,6 +1,11 @@
 <?php
     include "blocks/bd.php";
-    $result = mysql_query("SELECT title,meta_d,meta_k,text FROM settings WHERE page='articles'",$bd);
+
+    if (isset($_GET['id'])){
+        $id = $_GET['id'];
+    }
+
+    $result = mysql_query("SELECT * FROM lessons WHERE id='$id'",$bd);
 
     $myrow = mysql_fetch_array($result);
 ?>
@@ -27,10 +32,29 @@
             include("blocks/lefttd.php");
         ?>
             <td width="508px" class="v_top">
+                <h2 class="view_title">
+                    <?php 
+                        echo $myrow["title"];
+                     ?>
+                </h2>
+                   <p class="view_date">
+                   Дата добавления: 
+                        <?php 
+                        echo $myrow["date"];
+                     ?>  
+                   </p>   
+                    <p class="view_date">
+                        Автор:
+                     <?php 
+                        echo $myrow["author"];
+                     ?>
+                     </p>
                  <?php echo $myrow['text'];?>
             </td>
         </tr>
-        </table>  
+
+        </table>
+
             </td>
         </tr>
         <?php
@@ -38,6 +62,7 @@
         ?>
         
     </table>
+    
     
 </body>
 </html>

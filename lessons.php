@@ -1,9 +1,15 @@
+<?php
+    include "blocks/bd.php";
+    $result = mysql_query("SELECT title,meta_d,meta_k,text FROM settings WHERE page='lessons'",$bd);
+
+    $myrow = mysql_fetch_array($result);
+?>
 <!DOCTYPE html>
 <head lang="ru">
     <meta charset="UTF-8">
-    <title>Уроки</title>
-        <meta name="description" content="">
-        <meta name="keywords" content="Регистрал">
+    <title><?php echo $myrow['title'];?></title>
+        <meta name="description" content="<?php echo $myrow['meta_d'];?>">
+        <meta name="keywords" content="<?php echo $myrow['meta_k'];?>">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" type="text/css" href="style.css">
 </head>
@@ -21,10 +27,39 @@
             include("blocks/lefttd.php");
         ?>
             <td width="508px" class="v_top">
-                <p>Уроки</p>
+            
+                 <?php echo $myrow['text'];?>
+                 
+
+                 <?php
+                    $result = mysql_query('SELECT id,title,description,author,date FROM lessons',$bd);
+                    $myrow = mysql_fetch_array($result);
+
+
+                do{
+               
+                printf('<table align="center" class="lesson" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td class="lesson_title">
+                            <p class="lesson_name"><a href="view_lesson.php?id=%s">%s</a></p>
+                            <p class="lesson_adds">Дата добавления: %s</p>
+                            <p class="lesson_adds">Автор урока: %s</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>%s</p>
+                        </td>
+                    </tr>
+                </table><br><br>', $myrow["id"],$myrow["title"],$myrow["date"],$myrow["author"],$myrow["description"]);
+                }
+                while ($myrow = mysql_fetch_array($result));
+                ?>
             </td>
         </tr>
-        </table>  
+
+        </table>
+
             </td>
         </tr>
         <?php
@@ -32,6 +67,7 @@
         ?>
         
     </table>
+    
     
 </body>
 </html>
