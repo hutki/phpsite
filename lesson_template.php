@@ -1,8 +1,8 @@
 <?php
     include "blocks/bd.php";
-    $result = mysql_query("SELECT title,meta_d,meta_k,text FROM settings WHERE page='lessons'",$bd);
+    $result = mysqli_query($bd, "SELECT title,meta_d,meta_k,text FROM settings WHERE page='lessons'");
 
-    $myrow = mysql_fetch_array($result);
+    $myrow = mysqli_fetch_array($result);
 ?>
 <!DOCTYPE html>
 <head lang="ru">

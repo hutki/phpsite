@@ -5,9 +5,9 @@
         $id = $_GET['id'];
     }
 
-    $result = mysql_query("SELECT * FROM lessons WHERE id='$id'",$bd);
+    $result = mysqli_query($bd, "SELECT * FROM lessons WHERE id='$id'");
 
-    $myrow = mysql_fetch_array($result);
+    $myrow = mysqli_fetch_array($result);
 ?>
 <!DOCTYPE html>
 <head lang="ru">

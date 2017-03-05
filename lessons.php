@@ -1,8 +1,8 @@
 <?php
     include "blocks/bd.php";
-    $result = mysql_query("SELECT title,meta_d,meta_k,text FROM settings WHERE page='lessons'",$bd);
+    $result = mysqli_query($bd, "SELECT title,meta_d,meta_k,text FROM settings WHERE page='lessons'");
 
-    $myrow = mysql_fetch_array($result);
+    $myrow = mysqli_fetch_array($result);
 ?>
 <!DOCTYPE html>
 <head lang="ru">
@@ -32,8 +32,8 @@
                  
 
                  <?php
-                    $result = mysql_query('SELECT id,title,description,author,date FROM lessons',$bd);
-                    $myrow = mysql_fetch_array($result);
+                    $result = mysqli_query($bd, 'SELECT id,title,description,author,date FROM lessons');
+                    $myrow = mysqli_fetch_array($result);
 
 
                 do{
@@ -53,7 +53,7 @@
                     </tr>
                 </table><br><br>', $myrow["id"],$myrow["title"],$myrow["date"],$myrow["author"],$myrow["description"]);
                 }
-                while ($myrow = mysql_fetch_array($result));
+                while ($myrow = mysqli_fetch_array($result));
                 ?>
             </td>
         </tr>
