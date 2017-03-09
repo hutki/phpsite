@@ -28,6 +28,31 @@
         ?>
             <td width="508px" class="v_top">
                  <?php echo $myrow['text'];?>
+
+                  <?php
+                    $result = mysqli_query($bd, 'SELECT id,title,description,author,date FROM articles');
+                    $myrow = mysqli_fetch_array($result);
+
+
+                do{
+               
+                printf('<table align="center" class="lesson" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td class="lesson_title">
+                            <p class="lesson_name"><a href="view_articles.php?id=%s">%s</a></p>
+                            <p class="lesson_adds">Дата добавления: %s</p>
+                            <p class="lesson_adds">Автор урока: %s</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>%s</p>
+                        </td>
+                    </tr>
+                </table><br><br>', $myrow["id"],$myrow["title"],$myrow["date"],$myrow["author"],$myrow["description"]);
+                }
+                while ($myrow = mysqli_fetch_array($result));
+                ?>
             </td>
         </tr>
         </table>  
