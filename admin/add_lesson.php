@@ -1,6 +1,5 @@
 <?php
     include "blocks/bd.php";
-
     /*Если существует в глобальном массиве опр. ячейка то мы создаем пустую ячейку. Если она пустая, не заполненная, то мы ее уничтожаем.*/
     if (isset($_POST['title'])) {
         $title = $_POST['title'];
@@ -44,7 +43,6 @@
             unset($author);
         }
     }
-  
 ?>
 <!DOCTYPE html>
 <head lang="ru">
@@ -69,23 +67,17 @@
                 <?php
                     if (isset($title) && isset($meta_d) && isset($meta_k) && isset($date) && isset($description) && isset($text) && isset($author)) {
                         $result = mysqli_query($bd, "INSERT INTO lessons (title,meta_d,meta_k,date,description,text,author) VALUES('$title','$meta_d','$meta_k','$date','$description','$text','$author')");
-
                         if ($result == 'true' ) {
                             echo "<p>Ваш урок успешно добавлен</p>";
                         }
                         else{
                              echo "<p>Ваш урок не добавлен</p>";
                         }
-
                     } 
-
                     else {
                         echo "<p>Вы ввели не всю информацию</p>";
                     }
-                    
-
                 ?>
-
             </td>
         </tr>
         </table>  
@@ -94,7 +86,6 @@
         <?php
             include("blocks/footer.php");
         ?>
-
      </table>
 </body>
 </html>
