@@ -23,6 +23,7 @@
             <td width="508px" class="v_top"> 
             
                 <?php
+                $id = $_GET['id'];
                     if (!isset($_GET['id'])) {
                         $result = mysqli_query($bd, "SELECT title,id FROM lessons");
                         $myrow = mysqli_fetch_array($result);
@@ -32,6 +33,7 @@
                 while ($myrow = mysqli_fetch_array($result));
                 }
 else{
+
 $result = mysqli_query($bd, "SELECT * FROM lessons WHERE id='$id'");
 $myrow = mysqli_fetch_array($result);   
 print <<<HERE
