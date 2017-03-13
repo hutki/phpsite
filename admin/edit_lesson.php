@@ -1,6 +1,8 @@
 <?php
     include("blocks/bd.php");
-    $id = $_GET['id'];
+   if (isset($_POST['id'])) {
+       $id = $_POST['id'];
+   }
 ?>
 <!DOCTYPE html>
 <head lang="ru">
