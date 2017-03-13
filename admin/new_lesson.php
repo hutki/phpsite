@@ -18,7 +18,7 @@
             include("blocks/lefttd.php");
         ?>
             <td width="508px" class="v_top"> 
-                <form name="form1" action="add_lesson.php" method="post">
+                <form name="form1" action="add_lesson.php" method="get">
                     <p>
                          <label>Введите название урока
                         <br>

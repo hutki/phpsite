@@ -1,47 +1,36 @@
 <?php
     include "blocks/bd.php";
     /*Если существует в глобальном массиве опр. ячейка то мы создаем пустую ячейку. Если она пустая, не заполненная, то мы ее уничтожаем.*/
-    if (isset($_GET['title'])) {
-        $title = $_GET['title'];
+    if (isset($_POST['title'])) {
+        $title = $_POST['title'];
         if ($title == '') {
             unset($title);
         }
     }
-    if (isset($_GET['meta_d'])) {
-        $meta_d = $_GET['meta_d'];
+    if (isset($_POST['meta_d'])) {
+        $meta_d = $_POST['meta_d'];
          if ($meta_d == '') {
             unset($meta_d);
         }
     } 
-    if (isset($_GET['meta_k'])) {
-        $meta_k = $_GET['meta_k'];
+    if (isset($_POST['meta_k'])) {
+        $meta_k = $_POST['meta_k'];
         if ($meta_k == '') {
             unset($meta_k);
         }
     }
-    if (isset($_GET['date'])) {
-        $date = $_GET['date'];
-        if ($date == '') {
-            unset($date);
-        }
-    }
-    if (isset($_GET['description'])) {
-        $description = $_GET['description'];
-        if ($description == '') {
-            unset($description);
-        }
-    }
-    if (isset($_GET['text'])) {
-        $text = $_GET['text'];
+    
+   
+    if (isset($_POST['text'])) {
+        $text = $_POST['text'];
          if ($text == '') {
             unset($text);
         }
     } 
-    if (isset($_GET['author'])) {
-        $author = $_GET['author'];
-         if ($author == '') {
-            unset($author);
-        }
+   
+      if (isset($_POST['id'])) {
+        $id = $_POST['id'];
+       
     }
 ?>
 <!DOCTYPE html>
@@ -65,13 +54,13 @@
         ?>
             <td width="508px" class="v_top"> 
                 <?php
-                    if (isset($title) && isset($meta_d) && isset($meta_k) && isset($date) && isset($description) && isset($text) && isset($author)) {
-                        $result = mysqli_query($bd, "INSERT INTO lessons (title,meta_d,meta_k,date,description,text,author) VALUES('$title','$meta_d','$meta_k','$date','$description','$text','$author')");
+                    if (isset($title) && isset($meta_d) && isset($meta_k) && isset($text)) {
+                        $result = mysqli_query($bd, "UPDATE settings SET title='$title',meta_d='$meta_d', meta_k='$meta_k', text='$text' WHERE id='$id'");
                         if ($result == 'true' ) {
-                            echo "<p>Ваш урок успешно добавлен</p>";
+                            echo "<p>Ваш урок успешно обновлен!</p>";
                         }
                         else{
-                             echo "<p>Ваш урок не добавлен</p>";
+                             echo "<p>Ваш урок не обновлен</p>";
                         }
                     } 
                     else {
